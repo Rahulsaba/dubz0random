@@ -115,7 +115,6 @@ export default function RandomStudentPicker() {
     setCurrentNumber(null)
     setError("")
   }
-
   // Create clock numbers
   const clockNumbers = Array.from({ length: 12 }, (_, i) => i + 1)
 
