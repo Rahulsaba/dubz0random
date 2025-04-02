@@ -10,6 +10,14 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  
+.rand_grad {
+  background: #3B82F6;
+  background: linear-gradient(to right, #3B82F6 0%, #B3ECF6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
 }
 
 @layer base {
@@ -21,6 +29,7 @@ body {
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
     --primary: 0 0% 9%;
+    --pink: pink;
     --primary-foreground: 0 0% 98%;
     --secondary: 0 0% 96.1%;
     --secondary-foreground: 0 0% 9%;
@@ -48,6 +57,7 @@ body {
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -88,7 +98,10 @@ body {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
+
+

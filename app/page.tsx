@@ -31,10 +31,10 @@ export default function RandomStudentPicker() {
       return
     }
 
-    if (absentStudents.length >= 6) {
-      setError("You can only mark up to 6 students absent")
-      return
-    }
+    // if (absentStudents.length >= 6) {
+    //   setError("You can only mark up to 6 students absent")
+    //   return
+    // }
 
     setAbsentStudents([...absentStudents, num])
     setAbsentInput("")
@@ -129,7 +129,7 @@ export default function RandomStudentPicker() {
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-4x">
-      <h1 className="text-3xl font-bold text-center mb-8">Random Student Picker</h1>
+      <h1 className="text-3xl font-bold text-center mb-8 rand_grad">Random Student Picker</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="space-y-6">
@@ -151,7 +151,7 @@ export default function RandomStudentPicker() {
                   onKeyDown={(e) => e.key === "Enter" && addAbsentStudent()}
                 />
               </div>
-              <Button onClick={addAbsentStudent}>Add</Button>
+              <Button onClick={addAbsentStudent} className="bg-blue-500 hover:bg-blue-400 transition-colors duration-200">Add</Button>
             </div>
             {error && <p className="text-red-500 mt-2 text-sm">{error}</p>}
           </div>
@@ -166,7 +166,7 @@ export default function RandomStudentPicker() {
                   <Badge key={student} variant="secondary" className="flex items-center gap-1">
                     {student}
                     <button onClick={() => removeAbsentStudent(student)} className="ml-1">
-                      <X className="h-3 w-3" />
+                      <X className="h-3 w-3 text-blue-500" />
                     </button>
                   </Badge>
                 ))
@@ -190,17 +190,18 @@ export default function RandomStudentPicker() {
           </div>
 
           <div className="flex gap-4">
-            <Button onClick={generateRandomNumber} disabled={isSpinning} className="flex-1">
+            <Button onClick={generateRandomNumber} disabled={isSpinning}
+             className="flex-1 bg-blue-500 hover:bg-blue-400 transition-colors duration-200">
               {isSpinning ? "Selecting..." : "Pick Random Student"}
             </Button>
-            <Button variant="outline" onClick={resetAll} className="flex-1">
+            <Button variant="outline" onClick={resetAll} className="flex-1 hover:bg-blue-500 transition-colors duration-200 hover:text-white ">
               Reset
             </Button>
           </div>
         </div>
 
         <div className="flex items-center justify-center">
-          <div className="relative w-64 h-64 rounded-full border-4 border-primary flex items-center justify-center">
+          <div className="relative w-64 h-64 rounded-full border-4 border-blue-500 flex items-center justify-center">
             {/* Clock numbers */}
             {clockNumbers.map((num, index) => {
               const angle = index * 30 * (Math.PI / 180)
@@ -221,7 +222,7 @@ export default function RandomStudentPicker() {
 
             {/* Clock hand */}
             <div
-              className="absolute bg-primary rounded-full"
+              className="absolute bg-blue-500 rounded-full"
               style={{
                 width: "1.5px",
                 height: "90px",
@@ -236,10 +237,10 @@ export default function RandomStudentPicker() {
             />
 
             {/* Clock hand cap */}
-            <div className="absolute w-5 h-5 bg-primary rounded-full z-10" />
+            <div className="absolute w-5 h-5 bg-blue-500 rounded-full z-10" />
 
             {/* Center dot */}
-            <div className="absolute w-4 h-4 bg-primary rounded-full" />
+            <div className="absolute w-4 h-4 bg-blue-500 rounded-full" />
 
             {/* Current number display */}
             <div className="absolute -bottom-16 left-0 right-0 text-center">
