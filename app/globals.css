@@ -4,6 +4,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+color: #fff;
 }
 
 @layer utilities {
@@ -11,12 +12,19 @@ body {
     text-wrap: balance;
   }
   
+  .made_bg{
+    background-image: url("../public/gradient.png");
+    background-repeat: no-repeat;
+    position: relative;
+
+  }
+ 
+  
 .rand_grad {
   background: #3B82F6;
   background: linear-gradient(to right, #3B82F6 0%, #B3ECF6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
 }
 }
 
@@ -102,6 +110,7 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+
 }
 
 

@@ -141,6 +141,7 @@ export default function RandomStudentPicker() {
                   Absent Student Number
                 </Label>
                 <Input
+                className="!text-black"
                   id="absent-input"
                   type="number"
                   min={1}
@@ -163,7 +164,7 @@ export default function RandomStudentPicker() {
                 <p className="text-muted-foreground">No students marked absent</p>
               ) : (
                 absentStudents.map((student) => (
-                  <Badge key={student} variant="secondary" className="flex items-center gap-1">
+                  <Badge key={student} variant="secondary" className="flex items-center gap-1 border-2 border-blue-500">
                     {student}
                     <button onClick={() => removeAbsentStudent(student)} className="ml-1">
                       <X className="h-3 w-3 text-blue-500" />
@@ -181,7 +182,7 @@ export default function RandomStudentPicker() {
                 <p className="text-muted-foreground">No students selected yet</p>
               ) : (
                 generatedNumbers.map((num) => (
-                  <Badge key={num} variant="outline">
+                  <Badge key={num} variant="outline" className="text-white border-2 border-blue-500">
                     {num}
                   </Badge>
                 ))
@@ -194,7 +195,12 @@ export default function RandomStudentPicker() {
              className="flex-1 bg-blue-500 hover:bg-blue-400 transition-colors duration-200">
               {isSpinning ? "Selecting..." : "Pick Random Student"}
             </Button>
-            <Button variant="outline" onClick={resetAll} className="flex-1 hover:bg-blue-500 transition-colors duration-200 hover:text-white ">
+            <Button variant="outline" onClick={resetAll} 
+            className="flex-1
+            text-blue-500 hover:bg-blue-500 transition-colors duration-200 
+            hover:text-white 
+            border-2 border-blue-500"
+            >
               Reset
             </Button>
           </div>
