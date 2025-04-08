@@ -21,9 +21,10 @@ export default function RandomStudentPicker() {
   // Function to add absent student
   const addAbsentStudent = () => {
     const num = Number.parseInt(absentInput)
+    setError(``)
     if (isNaN(num) || num < 1 || num > totalStudents) {
       setError(`Please enter a valid number between 1 and ${totalStudents}`)
-      return
+      return ('')
     }
 
     if (absentStudents.includes(num)) {
@@ -141,7 +142,7 @@ export default function RandomStudentPicker() {
                   Absent Student Number
                 </Label>
                 <Input
-                className="!text-black"
+                  className="!text-black"
                   id="absent-input"
                   type="number"
                   min={1}
@@ -192,11 +193,11 @@ export default function RandomStudentPicker() {
 
           <div className="flex gap-4">
             <Button onClick={generateRandomNumber} disabled={isSpinning}
-             className="flex-1 bg-blue-500 hover:bg-blue-400 transition-colors duration-200">
+              className="flex-1 bg-blue-500 hover:bg-blue-400 transition-colors duration-200">
               {isSpinning ? "Selecting..." : "Pick Random Student"}
             </Button>
-            <Button variant="outline" onClick={resetAll} 
-            className="flex-1
+            <Button variant="outline" onClick={resetAll}
+              className="flex-1
             text-blue-500 hover:bg-blue-500 transition-colors duration-200 
             hover:text-white 
             border-2 border-blue-500"
